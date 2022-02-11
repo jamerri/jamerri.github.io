@@ -276,41 +276,43 @@
 <li>要为函数编写测试用例，可先导入模块unittest以及要测试的函数，再创建一个继承unittest.</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> name_function <span class="keyword">import</span> get_formatted_name</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameTestCase</span>(<span class="params">unittest.TestCase</span>)</span></span><br><span class="line"><span class="class">    &quot;&quot;&quot;测试<span class="title">name_function</span>.<span class="title">py</span>&quot;&quot;&quot;</span></span><br><span class="line"><span class="class">    </span></span><br><span class="line"><span class="class">    <span class="title">def</span> <span class="title">test_first_last_name</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;能够正确地处理像Janis Joplin这样的姓名吗？&quot;&quot;&quot;</span></span><br><span class="line">        formatted_name = get_formatted_name(<span class="string">&#x27;Janis&#x27;</span>, <span class="string">&#x27;Joplin&#x27;</span>)</span><br><span class="line">        self.assertEqual(formatted_name, <span class="string">&#x27;Janis Joplin&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">unittest.main()</span><br></pre></td></tr></table></figure>
-
 <h2 id="不能通过的测试"><a href="#不能通过的测试" class="headerlink" title="不能通过的测试"></a>不能通过的测试</h2><span id="more"></span>
-
-<h2 id="测试未通过时怎么办"><a href="#测试未通过时怎么办" class="headerlink" title="测试未通过时怎么办"></a>测试未通过时怎么办</h2><h2 id="添加新测试"><a href="#添加新测试" class="headerlink" title="添加新测试"></a>添加新测试</h2><h1 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h1><h2 id="各种断言方法"><a href="#各种断言方法" class="headerlink" title="各种断言方法"></a>各种断言方法</h2><table>
+<h2 id="测试未通过时怎么办"><a href="#测试未通过时怎么办" class="headerlink" title="测试未通过时怎么办"></a>测试未通过时怎么办</h2><h2 id="添加新测试"><a href="#添加新测试" class="headerlink" title="添加新测试"></a>添加新测试</h2><h1 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h1><h2 id="各种断言方法"><a href="#各种断言方法" class="headerlink" title="各种断言方法"></a>各种断言方法</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">方法</th>
-<th align="center">用途</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">用途</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">assertEqual(a, b)</td>
-<td align="center">核实a == b</td>
+<tbody>
+<tr>
+<td style="text-align:center">assertEqual(a, b)</td>
+<td style="text-align:center">核实a == b</td>
 </tr>
 <tr>
-<td align="center">assertNotEqual(a, b)</td>
-<td align="center">核实a != b</td>
+<td style="text-align:center">assertNotEqual(a, b)</td>
+<td style="text-align:center">核实a != b</td>
 </tr>
 <tr>
-<td align="center">assertTrue(x)</td>
-<td align="center">核实x为True</td>
+<td style="text-align:center">assertTrue(x)</td>
+<td style="text-align:center">核实x为True</td>
 </tr>
 <tr>
-<td align="center">assertFalse(x)</td>
-<td align="center">核实x为False</td>
+<td style="text-align:center">assertFalse(x)</td>
+<td style="text-align:center">核实x为False</td>
 </tr>
 <tr>
-<td align="center">assertIn(item, list)</td>
-<td align="center">核实item在list中</td>
+<td style="text-align:center">assertIn(item, list)</td>
+<td style="text-align:center">核实item在list中</td>
 </tr>
 <tr>
-<td align="center">assertNotIn(item, list)</td>
-<td align="center">核实item不在list中</td>
+<td style="text-align:center">assertNotIn(item, list)</td>
+<td style="text-align:center">核实item不在list中</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="一个要测试的类"><a href="#一个要测试的类" class="headerlink" title="一个要测试的类"></a>一个要测试的类</h2><h2 id="测试AnonymousSurvey类"><a href="#测试AnonymousSurvey类" class="headerlink" title="测试AnonymousSurvey类"></a>测试AnonymousSurvey类</h2><h2 id="方法Setup"><a href="#方法Setup" class="headerlink" title="方法Setup()"></a>方法Setup()</h2>
     </div>
 
@@ -361,7 +363,10 @@
     <a href="/2021/08/08/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E5%8D%81%E7%AB%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="《Python编程从入门到实践》第十章笔记">
       <i class="fa fa-chevron-left"></i> 《Python编程从入门到实践》第十章笔记
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/12/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A6%82%E7%8E%87/" rel="next" title="第一章-统计学习方法概率">
+      第一章-统计学习方法概率 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -436,20 +441,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -497,13 +502,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">21k</span>
+    <span title="Symbols count total">29k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">26 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
@@ -578,6 +583,8 @@
 
 
 
+
+  
 
   
 

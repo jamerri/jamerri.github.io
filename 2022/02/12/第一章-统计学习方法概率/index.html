@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jamerri.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="统计学习方法概论统计学习统计学习：基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科 统计学习方法的三要素：模型（model）、策略（strategy）和算法（algorithm） 监督学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一章-统计学习方法概率">
+<meta property="og:url" content="http://jamerri.github.io/2022/02/12/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A6%82%E7%8E%87/index.html">
+<meta property="og:site_name" content="Jamerri&#39;s blog">
+<meta property="og:description" content="统计学习方法概论统计学习统计学习：基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科 统计学习方法的三要素：模型（model）、策略（strategy）和算法（algorithm） 监督学习">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNly1gza5cccut2j30as06eaa3.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNly1gza5cbh1acj30d8088q2y.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNly1gza5cb8j1ej30bb06qaa4.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNly1gza5cbx242j30at06fdfv.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/008i3skNly1gza5ccuqlbj30at06dt8q.jpg">
+<meta property="article:published_time" content="2022-02-12T05:20:40.000Z">
+<meta property="article:modified_time" content="2022-02-11T19:08:00.331Z">
+<meta property="article:author" content="Mingrui_Jiang">
+<meta property="article:tag" content="机器学习 统计基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/008i3skNly1gza5cccut2j30as06eaa3.jpg">
+
+<link rel="canonical" href="http://jamerri.github.io/2022/02/12/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A6%82%E7%8E%87/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>第一章-统计学习方法概率 | Jamerri's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jamerri's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/jamerri" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://jamerri.github.io/2022/02/12/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A6%82%E7%8E%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/2.jpg">
+      <meta itemprop="name" content="Mingrui_Jiang">
+      <meta itemprop="description" content="记录学习过程中的点点滴滴，见证自己的成长">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jamerri's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第一章-统计学习方法概率
+        </h1>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-02-12 13:20:40 / Modified: 03:08:00" itemprop="dateCreated datePublished" datetime="2022-02-12T13:20:40+08:00">2022-02-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">算法类</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>7.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>7 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="统计学习方法概论"><a href="#统计学习方法概论" class="headerlink" title="统计学习方法概论"></a>统计学习方法概论</h1><h2 id="统计学习"><a href="#统计学习" class="headerlink" title="统计学习"></a>统计学习</h2><p><strong>统计学习</strong>：基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科</p>
+<p><strong>统计学习方法的三要素</strong>：模型（model）、策略（strategy）和算法（algorithm）</p>
+<h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><span id="more"></span>
+<p>输入实例$x$的特征向量记作</p>
+<script type="math/tex; mode=display">
+x = （x^{(1)}, x^{(2)}, \cdots, x^{(i)}, \cdots, x^{(n)}）^T</script><p>$x^{(i)}$表示$x$的第$i$个特征。注意，$x^{(i)}$与$x_i$不同，本书通常用$x_i$表示多个输入变量中第$i$个，即</p>
+<script type="math/tex; mode=display">
+x_i = (x^{(1)}_i, x^{(2)}_i, \cdots, x^{(i)_i}, \cdots, x^{(n)}_i)</script><p>监督学习从训练数据（training data）集合中学习模型，对测试数据（test data）进行预测。训练数据由输入（或特征向量）与输出对组成，训练集通常表示为</p>
+<script type="math/tex; mode=display">
+T = {(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)}</script><p>监督学习的模型可以是概率模型或非概率模型，由条件概率分布$P(Y|X)$或者决策函数（decision function）$Y=f(X)$表示，随具体学习方法而定，对具体的输入进行相应的输出预测时，写作$P(Y|X)$或$Y=f(X)$。</p>
+<p>监督学习利用训练数据集学习一个模型，再用模型对测试样本集进行预测。由于在这个过程中需要训练数据集，而训练数据集往往是人工给出的，所以称为==监督学习==</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gza5cccut2j30as06eaa3.jpg" alt=""></p>
+<p><center>图1 监督学习问题</p>
+<p>首先给定一个训练数据集</p>
+<script type="math/tex; mode=display">
+T = {(x_1,y_1),(x_2,y_2),\cdots,(x_N,y_N)}</script><p>其中$(x_i, y_i), \enspace i = 1, 2, \cdots, N$，称为样本或样本点，$x_i \in \mathcal{X} \subseteq \bf{R}^n$是输入观测值，也称为输入或实例，$y_i \subset \mathcal{Y}$是输出的观测值，也称为输出。</p>
+<p>监督学习中，假设训练数据与测试数据是依联合概率分布$P(Y|X)$独立同分布产生的。</p>
+<p>在学习过程中，学习系统利用给定的训练数据集，通过学习（或训练）得到一个模型，表示为条件概率分布$hat{P}(Y|X)$或决策函数$hat{Y}=f(X)$。条件概率分布$hat{P}(Y|X)$或决策函数$hat{Y}=f(X)$描述输入与输出随机变量之间的映射关系。</p>
+<p>在预测过程中，预测系统对于给定的测试样本集中输入的$x_{N+1}$，由模型$y_{N+1}=arg \: max_{y_{N+1}} \hat{P}(y_{N+1}|x_{N+1})$或$y_{N+1}= \hat{Y}(x_{N+1})$给出相应的输出$y_{N+1}$。</p>
+<h2 id="监督学习-1"><a href="#监督学习-1" class="headerlink" title="监督学习"></a>监督学习</h2><p><center>方法 = 模型 + 策略 + 算法</p>
+<h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>假设空间用$\digamma$表示。假设空间可以定义为决策函数的集合</p>
+<script type="math/tex; mode=display">
+\digamma = { \{ f \: | \:Y = f(X) \}}</script><p>其中，$X$和$Y$是定义在输入空间$\mathcal{X}$和$输出空间\mathcal{Y}$上的变量。这时$\digamma$通常是由一个参数向量决定的函数族：</p>
+<script type="math/tex; mode=display">
+\digamma = { \{ f \: | \:Y = f_\theta(X), \: \theta \in \bf{R}^n \}}</script><p>参数向量$\theta$取值于$n$维欧式空间$\bf{R}^n$，称为参数空间。</p>
+<p>假设空间也可以定义为条件概率的集合</p>
+<script type="math/tex; mode=display">
+\digamma = { \{ P \: | \:P(Y|X) \}</script><p>其中，$X$和$Y$是定义在输入空间$\mathcal{X}$和$输出空间\mathcal{Y}$的随机变量。这时$\digamma$通常是由一个参数向量决定的条件概率分布族：</p>
+<script type="math/tex; mode=display">
+\digamma = { \{ P \: | \: P_\theta(Y|X), \: \theta \in \bf{R}^n \}}</script><p>参数向量$\theta$取值于$n$维欧式空间$\bf{R}^n$，称为参数空间。</p>
+<h3 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h3><ol>
+<li>损失函数和风险函数<br>监督学习问题是在假设空间$\digamma$中选取模型$f$作为决策函数，对于给定的输入$X$，由$f(X)$给出相应的输出$Y$，这个输出的预测值$f(X)$与真实值$Y$可能存在一致也可能不一致，用一个损失函数（loss function）或者代价函数（cost function）来度量预测错的程度。损失函数是$f(X)$和$Y$的非负实值函数，记作$L(Y,f(X))$。<br>统计学习常用的损失函数有以下几种：<br>（1） 0-1损失函数（0-1 loss function）</li>
+</ol>
+<script type="math/tex; mode=display">
+L(Y,f(X)) = \begin{cases}
+1, &\text{Y} \neq {f(X)}\\
+0, &\text{Y = f(X)}\\
+\end{cases}</script><p>（2）平方损失函数（quadratic loss function）</p>
+<script type="math/tex; mode=display">
+L(Y,f(X)) = (Y-f(X))^2</script><p>（3）绝对损失函数（absolute loss function）</p>
+<script type="math/tex; mode=display">
+L(Y,f(X)) = \left|\ Y-f(X)\right|</script><p>（4）对数损失函数（logarithmic loss function）或对数斯然损失函数（loglikelihood loss function）</p>
+<script type="math/tex; mode=display">
+L(Y,P(Y|X)) = -logP(Y|X)</script><p>损失函数值越小，模型越好。由于模型的输入、输出$(X，Y)$是随机变量，遵循联合分布$P(X，Y)$，所以损失函数的期望是</p>
+<script type="math/tex; mode=display">
+R_{exp}(f) = E_p[L(Y,f(X))] = \int_{\mathcal{X} \times \mathcal{Y}} L(y,f(X))P(x,y)dxdy</script><p>这是理论上模型$f(X)$关于联合分布$P(X,Y)$的平均意义下的损失，称为风险函数（risk function）或期望损失（expected loss）。</p>
+<p>一方面根据期望风险最小学习模型要用到联合分布，另一方面联合分布又是未知的，所以监督学习就成为一个==病态问题（ill-formed problem）==。</p>
+<p>给定一个训练数据集</p>
+<script type="math/tex; mode=display">
+T = {(x_1,y_1),(x_2,y_2), \cdots, (x_N,y_N)}</script><p>模型$f(X)$关于训练数据集的平均损失成为经验风险（empirical risk）或经验损失（empirical loss），记作$R_{emp}$:</p>
+<script type="math/tex; mode=display">
+R_{emp}(f)=\frac{1}{N} \sum_{i=1}^{k} L(y_i,f(x_i))</script><p>期望风险$R_{exp}(f)$是模型关于联合分布的期望损失，经验风险$R_{emp}(f)$是模型关于训练样本集的平均损失。根据大数定律，当样本容量N趋于无穷时，经验风险$R_{emp}(f)$趋于期望风险$R_{exp}(f)$。</p>
+<ol>
+<li>经验风险最小化与结构风险最小化</li>
+</ol>
+<p>在假设空间，损失函数以及训练数据集确定的情况下，经验风险函数式（14）就可以确定。经验风险最小化（empirical risk minimization， ERM）的策略认为，经验风险最小化的模型是最有的模型。根据这一策略，按照经验风险最小化求最优模型就是求解最优问题：</p>
+<script type="math/tex; mode=display">
+\min\limits_{f \in \digamma} \frac{1}{N} L(y_i,f(x_i))</script><p>其中，$\digamma$是假设空间。</p>
+<p>当样本容量足够大时，经验风险最小化能保证有很好的学习效果，在现实中被广泛采用。但是，当样本容量很小时，经验风险最小化学习的效果就未必很好，会产生后面将要叙述的“==过拟合（over-fitting）==”现象。</p>
+<p>结构风险最小化（structural risk minimization，SRM）是为了防止过拟合而提出来的策略。结构风险最小化等价于正则化（regularization）。结构风险在经验风险上加上表示模型复杂度的正则化项（regularizer）或罚项（penalty term）。在假设空间、损失函数以及训练数据集确定的情况下，结构风险的定义是</p>
+<script type="math/tex; mode=display">
+R_{srm}(f) = \frac{1}{N} \sum_{i=1}^{N} L(y_i,f(x_i)) + \lambda J(f)</script><p>其中$J(f)$为模型的复杂度，是定义在假设空间$\digamma$上的泛函。模型$f$越复杂，复杂度$J(f)$就越大；反之，模型$f$越简单，复杂度$J(f)$就越小。也就是说，复杂度表示了对复杂模型的惩罚。$ \lambda \ge 0$是系数，用以权衡经验风险和模型复杂度。结构风险小需要经验风险与模型复杂度同时小。结构风险最小化就等驾驭最大后验概率统计。</p>
+<p>结构风险最小化的策略认为结构风险最小的模型是最优的模型。所以求最优模型，就是求解最优化问题：</p>
+<script type="math/tex; mode=display">
+\min\limits_{f \in \digamma} \frac{1}{N} L(y_i,f(x_i)) + \lambda J(f)</script><h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>算法是指学习模型的具体计算方法。统计学习基于训练数据集，根据学习策略，从假设空间中选择最优模型，最后需要考虑用什么样的计算方法求解最优模型。</p>
+<h2 id="模型评估与模型选择"><a href="#模型评估与模型选择" class="headerlink" title="模型评估与模型选择"></a>模型评估与模型选择</h2><h3 id="训练误差与测试误差"><a href="#训练误差与测试误差" class="headerlink" title="训练误差与测试误差"></a>训练误差与测试误差</h3><p>假设学习到的模型是$Y = \widehat{f}(X)$，训练误差是模型$Y = \widehat{f}(X)$关于训练数据集的平均损失：</p>
+<script type="math/tex; mode=display">
+R_{emp}(\widehat{f}) = \frac{1}{N} \sum_{i=1}^{N}L(y_i,\widehat{f}(x_i))</script><p>其中$N$是训练样本容量。</p>
+<p>测试误差是模型$Y = \widehat{f}(X)$关于测试数据集的平均损失：</p>
+<script type="math/tex; mode=display">
+e_test = \frac{1}{N'} \sum_{i=1}^{N'}L(y_i,\widehat{f}(x_i))</script><p>其中$N’$是训练样本容量。</p>
+<h3 id="过拟合与模型选择"><a href="#过拟合与模型选择" class="headerlink" title="过拟合与模型选择"></a>过拟合与模型选择</h3><p>所选择的模型要与真模型的参数个数相同，所选择的模型的参数向量与真模型的参数向量相近。</p>
+<p>图2描述了训练误差和测试误差与模型的复杂度之间的关系。当模型的复杂度增大时，训练误差会逐渐减小并趋向于0；而测试误差会先减小，达到最小值后有增大。当选择的模型复杂度过大时，过拟合现象就会发生。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gza5cbh1acj30d8088q2y.jpg" alt=""></p>
+<p><center>图2 训练误差和测试误差与模型复杂度的关系</p>
+<h2 id="正则化与交叉验证"><a href="#正则化与交叉验证" class="headerlink" title="正则化与交叉验证"></a>正则化与交叉验证</h2><h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p>正则化一般具有如下形式“</p>
+<script type="math/tex; mode=display">
+\min\limits_{f \in \digamma} \frac{1}{N} \sum_{i=1}^{N}L(y_i,f(x_i)) + \lambda J(f)</script><p>其中，第1项是经验风险，第2项是正则化项，$ \lambda \ge 0$为调整两者之间关系的系数。</p>
+<h3 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h3><p>如果给定的样本数据充足，进行模型选择的一种简单方法是随机地将数据集切分成三部分，分别为训练集（training set）、验证集（validation set）和测试集（test set）。训练集用来训练模型，验证集用于模型的选择，而测试集用于最终对学习方法的评估。</p>
+<ol>
+<li>简单交叉验证</li>
+<li>S折交叉验证</li>
+<li>留一交叉验证</li>
+</ol>
+<h2 id="泛化能力"><a href="#泛化能力" class="headerlink" title="泛化能力"></a>泛化能力</h2><h3 id="泛化误差"><a href="#泛化误差" class="headerlink" title="泛化误差"></a>泛化误差</h3><p>学习方法的泛化能力（generalization ability）是指由该方法学习到的模型对未知数据的预测能力，是学习方法本质上重要的性质。</p>
+<p>首先给出泛化误差的定义。如果学到的模型是$\widehat{f}$，那么用这个模型对未知数据预测的误差即为泛化误差（generalization error）</p>
+<script type="math/tex; mode=display">
+R_{exp}(\widehat{f}) = E_p[L(Y,\widehat{f}(X))] = \int_{\mathcal{X} \times \mathcal{Y}} L(y,\widehat{f}(X))P(x,y)dxdy</script><p>泛化误差反映了学习方法的泛化能力，如果一种方法学习的模型比另一种方法学习的模型具有更小的泛化误差，那么这种方法就更有效。事实上，泛化误差就是所学习到的模型的期望风险。</p>
+<h3 id="泛化误差上界"><a href="#泛化误差上界" class="headerlink" title="泛化误差上界"></a>泛化误差上界</h3><p>学习方法的泛化能力分析往往是通过研究泛化误差的概率上界进行的，简称为泛化误差上界（generalization error bound）。具体来说，就是通过比较两种学习方法的泛化误差上界的大小来比较它们的优劣。<br>泛化误差上界通常具有以下性质；它是样本容量的函数，当样本容量增加时，泛化上界趋于0；它是假设空间容量（capacity）的函数，假设空间容量越大，模型越难学，泛化误差上界就越大。</p>
+<p><strong>定理1.1（泛化误差上界）</strong> 对二类分类问题，当假设空间是有限个函数的集合$\digamma = {f_1, f_2, \cdots, f_d}$时，对任意一个函数$f \in \digamma$，至少以概率$1-\delta$，以下不等式成立：</p>
+<script type="math/tex; mode=display">
+R(f) \le \widehat{R}(f) + \varepsilon(d,N,\delta)</script><p>其中，</p>
+<script type="math/tex; mode=display">
+\varepsilon(d,N,\delta) = \sqrt{\frac{1}{2N} (log{d} + log{\frac{1}{\delta}})}</script><p>不等式（22）左端$R(f)$是泛化误差，右端即为泛化误差上界。在泛化误差上界中，第1项是训练误差，训练误差越小，泛化误差越小。第2项$\varepsilon(d,N,\delta)$是$N$的单调递减函数，当$N$趋于无穷时趋于0；同时它也是$\sqrt{log{d}}$阶的函数，假设空间$\digamma$包含的函数越多，其值越大。</p>
+<h2 id="生成模型与判别模型"><a href="#生成模型与判别模型" class="headerlink" title="生成模型与判别模型"></a>生成模型与判别模型</h2><p>监督学习方法又可以分为生成方法（generative approach）和判别方法（discriminative approach）。所学到的模型分别称为生成模型（generative model）和判别模型（discriminative model）。<br>生成方法由数据学习联合概率分布$P(X,Y)$，然后求出条件概率分布$P(Y|X)$作为预测的模型，即生成模型：</p>
+<script type="math/tex; mode=display">
+P(Y|X) = \frac{P(X,Y)}{P(X)}</script><p>这样的方法之所以称为生成方法，是因为模型表示了给定输入$X$产生输出$Y$的生成关系。典型的生成模型有：==朴素贝叶斯法==和==隐马尔可夫模型==。</p>
+<p>判别方法由数据直接学习决策函数$f(X)$或者条件概率分布$P(Y|X)$作为预测的模型，即判别模型。判别方法关心的是对给定的输入X，应该预测什么样的输出Y。典型的判别模型包括：==k近邻法==、==感知集==、==决策树==、==逻辑斯谛回归模型==、==最大熵模型==、==支持向量机==、==提升方法==和==条件随机场==等。</p>
+<p><strong>生成方法的特点</strong>：生成方法可以还原出联合概率分布$P(X,Y)$，而判别方法则不能；生成方法的学习收敛速度更快，即当样本容量增加的时候，学到的模型可以更快地收敛于真实模型；当存在隐变量时，仍可以用生成学方法学习，此时判别方法不能用。</p>
+<p><strong>判别方法的特点</strong>：判别方法直接学习的是条件概率$P(Y|X)$或决策函数$f(X)$，直接面对预测，往往学习的准确率更高；由于直接学习$P(Y|X)$或$f(X)$，可以对数据进行各种程度上的抽象、定义特征并使用特征，因此可以简化学习问题。</p>
+<h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><p>在监督学习中，当输出变量Y取有限个离散值时，预测问题便称为分类问题。这时，输入变量X可以是离散的，也可以是连续的。监督学习从数据中国呢学习一个分类模型或分类决策函数，称为分类器（classifier）。分类器对新的输入进行输出的预测，称为分类（classification）。可能的输出称为类（class）。分类的类别为多个时，称为多类分类问题。</p>
+<p>图3中$(x_1,y_1), (x_2,y_2), \cdots, (x_N,y_N)$是训练数据集，学习系统由训练数据学习一个分类器$P(Y|X)$或$Y=f(X)$；分类系统通过学到的分类器$P(Y|X)$或$Y=f(X)$对于新的输入实例$x_{N+1}$进行分类，即预测器输出的类标记$y_{N+1}$。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gza5cb8j1ej30bb06qaa4.jpg" alt=""></p>
+<p><center>图3 分类问题</p>
+<p>评价分类器性能的指标一般是分类准确率（accuracy），其定义是：对于给定的测试数据集，分类器正确分类的样本数与总样本数之比。也就是损失函数是0-1损失时测试数据集上的准确率。<br>对于二类分类问题常用的评价指标时精确率（precision）与召回率（recall）。通常以关注的类为正类，其他类为负类，分类器在测试数据集上的预测或正确或不正确，4种情况出现的总分分别记作：<br>TP——将正类预测为正类数；<br>FN——将正类预测为负类数；<br>FP——将负类预测为正类数；<br>TN——将负类预测为负类数。</p>
+<p>精确率定义为</p>
+<script type="math/tex; mode=display">
+P = \frac{TP}{TP+FP}</script><p>召回率定义为</p>
+<script type="math/tex; mode=display">
+P = \frac{TP}{TP+FN}</script><p>此外，还有$F_1$值，是精确率和召回率的调和均值，即</p>
+<script type="math/tex; mode=display">
+\frac{2}{F_1} = \frac{1}{P} + \frac{1}{R}</script><script type="math/tex; mode=display">
+F_1 = \frac{2TP}{2TP + FP + FN}</script><p>精确率和召回率都高时，$F_1$值也会高。</p>
+<h2 id="标注问题"><a href="#标注问题" class="headerlink" title="标注问题"></a>标注问题</h2><p>标注问题分为学习和标注两个过程（如图4所示）。首先给定一个训练数据集</p>
+<script type="math/tex; mode=display">
+T = {(x_1,y_1),(x_2,y_2), \cdots, (x_N,y_N)}</script><p>这里，$x_i = (x_i^{(1)}, x_i^{(2)}, \cdots, x_i^{(n)})^T, i = 1,2, \cdots, N$，是输入观测序列，$y_i = (y_i^{(1)}, y_i^{(2)}, \cdots, y_i^{(n)})^T$是响应的输出标记序列，n是序列的长度，对不同样本可以有不同的值，学习系统基于训练数据集构建一个模型，表示为条件概率分布：</p>
+<script type="math/tex; mode=display">
+P(Y^{(1)},Y^{(2)}, \cdots, Y^{(n)} |  X^{(1)},X^{(2)}, \cdots, X^{(n)})</script><p>$x_{N+1} = (x_{N+1}^{(1)}, x_{N+1}^{(2)}, \cdots, x_{N+1}^{(n)})^T$</p>
+<p>这里，每一个$X^{(1)}(i = 1,2, \cdots, n)$取值为所有可能的观测，每一个$Y^{(1)}(i = 1,2, \cdots, n)取值为所有可能的标记，一般$n \le N$。标注系统按照学习得到的条件概率分布模型，对新的输入观测序列找到相应的输出标记序列。</p>
+<p>具体地，对一个观测序列$x_{N+1} = (x_{N+1}^{(1)}, x_{N+1}^{(2)}, \cdots, x_{N+1}^{(n)})^T$找到使条件概率分布$P((Y_(N+1)^{(1)},Y_(N+1)^{(2)}, \cdots, Y_(N+1)^{(n)}) |  (X_(N+1)^{(1)},X_(N+1)^{(2)}, \cdots, X_(N+1)^{(n)})$<br>最大的标记序列$y_{N+1} = (y_{N+1}^{(1)}, y_{N+1}^{(2)}, \cdots, y_{N+1}^{(n)})^T$。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gza5cbx242j30at06fdfv.jpg" alt=""></p>
+<p><center>图4 标注问题</p>
+<h2 id="回归模型"><a href="#回归模型" class="headerlink" title="回归模型"></a>回归模型</h2><p>回归用于预测输入变量（自变量）和输出变量（因变量）之间的关系，特别是当输入变量的值发生变化时，输出变量的值随之发生的变化。回归模型正是表示从输入变量到输出变量之间映射的函数。回归问题的学习等价于函数拟合：选择一条函数曲线使其很好地拟合已知数据且很好地预测未知数据。</p>
+<p>回归问题分为学习和预测两个过程（如图5所示）。首先给定一个训练数据集</p>
+<script type="math/tex; mode=display">
+T = {(x_1,y_1),(x_2,y_2), \cdots, (x_N,y_N)}</script><p>这里，$x_i \in R^n$是输入，$y \in R$是对应的输出，$i = 1, 2, \cdots, N$。学习系统基于训练数据构建一个模型，即函数$Y=f(X)$；对新的输入$x_{N+1}$，预测系统根据学习的模型$Y=f(X)$确定相应的输出$y_{N+1}$。</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gza5ccuqlbj30at06dt8q.jpg" alt=""></p>
+<p><center>图5 回归问题</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Mingrui_Jiang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://jamerri.github.io/2022/02/12/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A6%82%E7%8E%87/" title="第一章-统计学习方法概率">http://jamerri.github.io/2022/02/12/第一章-统计学习方法概率/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%BB%9F%E8%AE%A1%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> 机器学习 统计基础</ a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/08/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="《Python编程从入门到实践》第十一章笔记">
+      <i class="fa fa-chevron-left"></i> 《Python编程从入门到实践》第十一章笔记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A6%82%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">统计学习方法概论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.1.</span> <span class="nav-text">统计学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.2.</span> <span class="nav-text">监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0-1"><span class="nav-number">1.3.</span> <span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%96%E7%95%A5"><span class="nav-number">1.3.2.</span> <span class="nav-text">策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.3.</span> <span class="nav-text">算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="nav-number">1.4.</span> <span class="nav-text">模型评估与模型选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E8%AF%AF%E5%B7%AE%E4%B8%8E%E6%B5%8B%E8%AF%95%E8%AF%AF%E5%B7%AE"><span class="nav-number">1.4.1.</span> <span class="nav-text">训练误差与测试误差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="nav-number">1.4.2.</span> <span class="nav-text">过拟合与模型选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96%E4%B8%8E%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="nav-number">1.5.</span> <span class="nav-text">正则化与交叉验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%96"><span class="nav-number">1.5.1.</span> <span class="nav-text">正则化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81"><span class="nav-number">1.5.2.</span> <span class="nav-text">交叉验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96%E8%83%BD%E5%8A%9B"><span class="nav-number">1.6.</span> <span class="nav-text">泛化能力</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96%E8%AF%AF%E5%B7%AE"><span class="nav-number">1.6.1.</span> <span class="nav-text">泛化误差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%9B%E5%8C%96%E8%AF%AF%E5%B7%AE%E4%B8%8A%E7%95%8C"><span class="nav-number">1.6.2.</span> <span class="nav-text">泛化误差上界</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%88%A4%E5%88%AB%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.7.</span> <span class="nav-text">生成模型与判别模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-number">1.8.</span> <span class="nav-text">分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98"><span class="nav-number">1.9.</span> <span class="nav-text">标注问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.10.</span> <span class="nav-text">回归模型</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mingrui_Jiang"
+      src="/images/2.jpg">
+  <p class="site-author-name" itemprop="name">Mingrui_Jiang</p>
+  <div class="site-description" itemprop="description">记录学习过程中的点点滴滴，见证自己的成长</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jamerri" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jamerri" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jamerri@163.com" title="E-Mail → mailto:jamerri@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mingrui_Jiang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">29k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">26 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

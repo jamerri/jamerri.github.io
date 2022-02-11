@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"jamerri.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="定义函数12345def greet_user():    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot;    print(&quot;Hello!&quot;)greet_user()  向函数传递信息12345def greet_user(username):    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&amp;quo">
+  <meta name="description" content="定义函数12345def greet_user():    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot;    print(&quot;Hello!&quot;)greet_user() 向函数传递信息12345def greet_user(username):    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Python编程从入门到实践》第八章笔记">
 <meta property="og:url" content="http://jamerri.github.io/2021/08/06/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E5%85%AB%E7%AB%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Jamerri&#39;s blog">
-<meta property="og:description" content="定义函数12345def greet_user():    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot;    print(&quot;Hello!&quot;)greet_user()  向函数传递信息12345def greet_user(username):    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&amp;quo">
+<meta property="og:description" content="定义函数12345def greet_user():    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot;    print(&quot;Hello!&quot;)greet_user() 向函数传递信息12345def greet_user(username):    &quot;&quot;&quot;显示简单的问候语&quot;&quot;&amp;quot">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-06T09:47:21.000Z">
 <meta property="article:modified_time" content="2022-01-12T07:42:18.348Z">
@@ -268,31 +268,23 @@
 
       
         <h1 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_user</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello!&quot;</span>)</span><br><span class="line"></span><br><span class="line">greet_user()</span><br></pre></td></tr></table></figure>
-
 <h2 id="向函数传递信息"><a href="#向函数传递信息" class="headerlink" title="向函数传递信息"></a>向函数传递信息</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_user</span>(<span class="params">username</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello!&quot;</span> + username.title() + <span class="string">&quot;!&quot;</span>)</span><br><span class="line"></span><br><span class="line">greet_user(<span class="string">&#x27;jesse&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <h2 id="实参和形参"><a href="#实参和形参" class="headerlink" title="实参和形参"></a>实参和形参</h2><ol>
 <li>‘username’是形参，’jesse’是实参。</li>
 </ol>
 <h1 id="传递实参"><a href="#传递实参" class="headerlink" title="传递实参"></a>传递实参</h1><span id="more"></span>
-
 <h2 id="位置实参"><a href="#位置实参" class="headerlink" title="位置实参"></a>位置实参</h2><p>① 调用函数多次<br>② 位置实参的顺序很重要</p>
 <h2 id="关键字实参"><a href="#关键字实参" class="headerlink" title="关键字实参"></a>关键字实参</h2><h2 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h2><h2 id="等效的函数调用"><a href="#等效的函数调用" class="headerlink" title="等效的函数调用"></a>等效的函数调用</h2><h2 id="避免实参错误"><a href="#避免实参错误" class="headerlink" title="避免实参错误"></a>避免实参错误</h2><h1 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h1><h2 id="返回简单值"><a href="#返回简单值" class="headerlink" title="返回简单值"></a>返回简单值</h2><h2 id="让实参变成可选的"><a href="#让实参变成可选的" class="headerlink" title="让实参变成可选的"></a>让实参变成可选的</h2><h2 id="返回字典"><a href="#返回字典" class="headerlink" title="返回字典"></a>返回字典</h2><h2 id="结合使用函数和while循环"><a href="#结合使用函数和while循环" class="headerlink" title="结合使用函数和while循环"></a>结合使用函数和while循环</h2><h1 id="传递列表"><a href="#传递列表" class="headerlink" title="传递列表"></a>传递列表</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greet_users</span>(<span class="params">names</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;向列表中的每位用户都发出简单的问候&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">        msg = <span class="string">&quot;Hello, &quot;</span> + name.title() + <span class="string">&quot;!&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(msg)</span><br><span class="line">        </span><br><span class="line">usernames = [<span class="string">&#x27;hannah&#x27;</span>, <span class="string">&#x27;ty&#x27;</span>, <span class="string">&#x27;margot&#x27;</span>]</span><br><span class="line">greet_users(usernames)</span><br></pre></td></tr></table></figure>
-
 <h2 id="在函数中修改列表"><a href="#在函数中修改列表" class="headerlink" title="在函数中修改列表"></a>在函数中修改列表</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_models</span>(<span class="params">unprinted_designs, completed_models</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    模拟打印每个设计，直到没有未打印的设计为止</span></span><br><span class="line"><span class="string">    打印每个设计后，都将其移到列表completed_models中</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">while</span> unprinted_designs:</span><br><span class="line">        current_design = unprinted_designs.pop()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 模拟根据设计制作3D打印模型的过程</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Printing model: &quot;</span> + current_design)</span><br><span class="line">        completed_models.append(current_design)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_completed_models</span>(<span class="params">completed_models</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;显示打印好的所有模型&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nThe following models have been printed:&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> completed_model <span class="keyword">in</span> completed_models:</span><br><span class="line">        <span class="built_in">print</span>(completed_model)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">unprinted_designs = [<span class="string">&#x27;iphone case&#x27;</span>, <span class="string">&#x27;robot pendant&#x27;</span>, <span class="string">&#x27;dodecahedron&#x27;</span>]</span><br><span class="line">completed_models = []</span><br><span class="line"></span><br><span class="line">print_models(unprinted_designs, completed_models)</span><br><span class="line">show_completed_models(completed_models)</span><br></pre></td></tr></table></figure>
-
 <h2 id="禁止函数修改列表"><a href="#禁止函数修改列表" class="headerlink" title="禁止函数修改列表"></a>禁止函数修改列表</h2><ol>
 <li>function_name(list_name[:])</li>
 </ol>
 <h1 id="传递任何数量的实参"><a href="#传递任何数量的实参" class="headerlink" title="传递任何数量的实参"></a>传递任何数量的实参</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_pizza</span>(<span class="params">*toppings</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;概述要制作的披萨&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nMaking a pizza with the following toppings:&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> topping <span class="keyword">in</span> toppings:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;- &quot;</span> + topping)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">make_pizza(<span class="string">&#x27;pepperoni&#x27;</span>)</span><br><span class="line">make_pizza(<span class="string">&#x27;mushrooms&#x27;</span>, <span class="string">&#x27;green pepers&#x27;</span>, <span class="string">&#x27;extra cheese&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <h2 id="结合使用位置实参和任意数量实参"><a href="#结合使用位置实参和任意数量实参" class="headerlink" title="结合使用位置实参和任意数量实参"></a>结合使用位置实参和任意数量实参</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_pizza</span>(<span class="params">size, *toppings</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;概述要制作的披萨&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nMaking a &quot;</span> + <span class="built_in">str</span>(size) + <span class="string">&quot;-inch pizza with the following toppings:&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> topping <span class="keyword">in</span> toppings:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;- &quot;</span> + topping)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">make_pizza(<span class="number">16</span>, <span class="string">&#x27;pepperoni&#x27;</span>)</span><br><span class="line">make_pizza(<span class="number">12</span>, <span class="string">&#x27;mushrooms&#x27;</span>, <span class="string">&#x27;green pepers&#x27;</span>, <span class="string">&#x27;extra cheese&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>基于上述函数定义，Python将受到的第一个值存储在形参size中，并将其他的所有值都存储在元组toppings中。</li>
 </ol>
 <h2 id="使用任意数量的关键字实参"><a href="#使用任意数量的关键字实参" class="headerlink" title="使用任意数量的关键字实参"></a>使用任意数量的关键字实参</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_profile</span>(<span class="params">first, last, **user_info</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;创建一个字典，其中包含我们知道的有关用户的一切&quot;&quot;&quot;</span></span><br><span class="line">    profile = &#123;&#125;</span><br><span class="line">    profile[<span class="string">&#x27;first_name&#x27;</span>] = first</span><br><span class="line">    profile[<span class="string">&#x27;last_name&#x27;</span>] = last</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> user_info.items():</span><br><span class="line">        profile[key] = value</span><br><span class="line">    <span class="keyword">return</span>  profile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">user_profile = build_profile(<span class="string">&#x27;albert&#x27;</span>, <span class="string">&#x27;einstein&#x27;</span>, location=<span class="string">&#x27;princeton&#x27;</span>, field=<span class="string">&#x27;physics&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(user_profile)</span><br></pre></td></tr></table></figure>
-
 <h1 id="将函数存储在模块中"><a href="#将函数存储在模块中" class="headerlink" title="将函数存储在模块中"></a>将函数存储在模块中</h1><h2 id="导入整个模块"><a href="#导入整个模块" class="headerlink" title="导入整个模块"></a>导入整个模块</h2><ol>
 <li>将文件A.py中除函数function_name()之外的其他代码删除。</li>
 <li>在B.py文件中导入刚创建的模块，再调用函数。</li>
@@ -440,20 +432,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -501,13 +493,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">21k</span>
+    <span title="Symbols count total">29k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">26 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
@@ -582,6 +574,8 @@
 
 
 
+
+  
 
   
 
