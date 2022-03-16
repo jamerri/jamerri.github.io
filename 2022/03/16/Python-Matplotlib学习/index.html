@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jamerri.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Matplotlib笔记为我学习【莫烦Python】Matplotlib Python 画图教程所编写的代码，在学习的过程中，我跟着视频进行了操作，下面的图片均为代码运行所得～ 视频课程链接：【莫烦Python】Matplotlib Python 画图教程 基本用法12345678import matplotlib.pyplot as pltimport numpy as npx &#x3D; np.lin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python-Matplotlib学习">
+<meta property="og:url" content="http://jamerri.github.io/2022/03/16/Python-Matplotlib%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Jamerri&#39;s blog">
+<meta property="og:description" content="Matplotlib笔记为我学习【莫烦Python】Matplotlib Python 画图教程所编写的代码，在学习的过程中，我跟着视频进行了操作，下面的图片均为代码运行所得～ 视频课程链接：【莫烦Python】Matplotlib Python 画图教程 基本用法12345678import matplotlib.pyplot as pltimport numpy as npx &#x3D; np.lin">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bww2zp5cj20ye0u0761.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bwy196p1j224q0u0gov.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bwzyry50j21570u0ac0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx0zwm6gj214h0u0mz2.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx2ncenqj214h0u040l.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx4482dqj214h0u0q4u.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx51vj57j20ye0u03zy.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx7a0rjzj20ye0u0tdl.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx8f5mz0j20ye0u0gnn.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx9hs0qcj20ye0u0tbo.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxansm70j20ye0u0myh.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxbvdo8nj20ye0u07a0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxd7vobpj20ye0u0wgn.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxfznz8wj20ye0u0q4z.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxgvjpuvj20ye0u0jt4.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxifsgo4j20yp0u075u.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxkoegh3j20ye0u0gnx.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxllu9sbj20ye0u0dho.jpg">
+<meta property="article:published_time" content="2022-03-16T10:37:37.000Z">
+<meta property="article:modified_time" content="2022-03-16T11:15:33.040Z">
+<meta property="article:author" content="Mingrui_Jiang">
+<meta property="article:tag" content="Python Matplotlib">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bww2zp5cj20ye0u0761.jpg">
+
+<link rel="canonical" href="http://jamerri.github.io/2022/03/16/Python-Matplotlib%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Python-Matplotlib学习 | Jamerri's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jamerri's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/jamerri" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://jamerri.github.io/2022/03/16/Python-Matplotlib%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/2.jpg">
+      <meta itemprop="name" content="Mingrui_Jiang">
+      <meta itemprop="description" content="记录学习过程中的点点滴滴，见证自己的成长">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jamerri's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python-Matplotlib学习
+        </h1>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-16 18:37:37 / Modified: 19:15:33" itemprop="dateCreated datePublished" datetime="2022-03-16T18:37:37+08:00">2022-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">编程类</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>9 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h1><p>笔记为我学习【莫烦Python】Matplotlib Python 画图教程所编写的代码，在学习的过程中，我跟着视频进行了操作，下面的图片均为代码运行所得～</p>
+<p>视频课程链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Jx411L7LU?p=1">【莫烦Python】Matplotlib Python 画图教程</a></p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">1</span>, <span class="number">1</span>, <span class="number">50</span>)</span><br><span class="line"><span class="comment">#  y = 2*x + 1</span></span><br><span class="line">y = x**<span class="number">2</span></span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bww2zp5cj20ye0u0761.jpg" alt=""></p>
+<h2 id="figure图像"><a href="#figure图像" class="headerlink" title="figure图像"></a>figure图像</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">50</span>)</span><br><span class="line">y1 = <span class="number">2</span>*x + <span class="number">1</span></span><br><span class="line">y2 = x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(x, y1)</span><br><span class="line"></span><br><span class="line">plt.figure(num=<span class="number">3</span>, figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line">plt.plot(x, y2)</span><br><span class="line">plt.plot(x, y1, color=<span class="string">&#x27;red&#x27;</span>, linewidth=<span class="number">1.0</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bwy196p1j224q0u0gov.jpg" alt=""></p>
+<h2 id="设置坐标轴"><a href="#设置坐标轴" class="headerlink" title="设置坐标轴"></a>设置坐标轴</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">50</span>)</span><br><span class="line">y1 = <span class="number">2</span>*x + <span class="number">1</span></span><br><span class="line">y2 = x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">plt.figure(num=<span class="number">3</span>, figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line"><span class="comment"># 设置xtick和ytick的方向：in、out、inout</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;xtick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;ytick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.plot(x, y2)</span><br><span class="line">plt.plot(x, y1, color=<span class="string">&#x27;red&#x27;</span>, linewidth=<span class="number">1.0</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlim((-<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">plt.ylim((-<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;I am X&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;I am Y&#x27;</span>)</span><br><span class="line"></span><br><span class="line">new_ticks = np.linspace(-<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(new_ticks)</span><br><span class="line">plt.xticks(new_ticks)</span><br><span class="line">plt.yticks([-<span class="number">2</span>, -<span class="number">1.8</span>, -<span class="number">1</span>, <span class="number">1.22</span>, <span class="number">3</span>,],</span><br><span class="line">        [<span class="string">r&#x27;$really\ bad$&#x27;</span>, <span class="string">r&#x27;$bad$&#x27;</span>, <span class="string">r&#x27;$normal$&#x27;</span>, <span class="string">r&#x27;$good$&#x27;</span>, <span class="string">r&#x27;$really\ good$&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bwzyry50j21570u0ac0.jpg" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">50</span>)</span><br><span class="line">y1 = <span class="number">2</span>*x + <span class="number">1</span></span><br><span class="line">y2 = x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">plt.figure(num=<span class="number">3</span>, figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line"><span class="comment"># 设置xtick和ytick的方向：in、out、inout</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;xtick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;ytick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.plot(x, y2)</span><br><span class="line">plt.plot(x, y1, color=<span class="string">&#x27;red&#x27;</span>, linewidth=<span class="number">1.0</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlim((-<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">plt.ylim((-<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;I am X&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;I am Y&#x27;</span>)</span><br><span class="line"></span><br><span class="line">new_ticks = np.linspace(-<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(new_ticks)</span><br><span class="line">plt.xticks(new_ticks)</span><br><span class="line">plt.yticks([-<span class="number">2</span>, -<span class="number">1.8</span>, -<span class="number">1</span>, <span class="number">1.22</span>, <span class="number">3</span>,],</span><br><span class="line">        [<span class="string">r&#x27;$really\ bad$&#x27;</span>, <span class="string">r&#x27;$bad$&#x27;</span>, <span class="string">r&#x27;$normal$&#x27;</span>, <span class="string">r&#x27;$good$&#x27;</span>, <span class="string">r&#x27;$really\ good$&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># gca = &#x27;get current axis&#x27;</span></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">ax.xaxis.set_ticks_position(<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line">ax.yaxis.set_ticks_position(<span class="string">&#x27;left&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;bottom&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>, <span class="number">0</span>)) <span class="comment"># outwards, axes</span></span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx0zwm6gj214h0u0mz2.jpg" alt=""></p>
+<h2 id="Legend图例"><a href="#Legend图例" class="headerlink" title="Legend图例"></a>Legend图例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">50</span>)</span><br><span class="line">y1 = <span class="number">2</span>*x + <span class="number">1</span></span><br><span class="line">y2 = x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">plt.figure(num=<span class="number">3</span>, figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line"><span class="comment"># 设置xtick和ytick的方向：in、out、inout</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;xtick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;ytick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line"></span><br><span class="line">plt.xlim((-<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">plt.ylim((-<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">plt.xlabel(<span class="string">&#x27;I am X&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;I am Y&#x27;</span>)</span><br><span class="line"></span><br><span class="line">new_ticks = np.linspace(-<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(new_ticks)</span><br><span class="line">plt.xticks(new_ticks)</span><br><span class="line">plt.yticks([-<span class="number">2</span>, -<span class="number">1.8</span>, -<span class="number">1</span>, <span class="number">1.22</span>, <span class="number">3</span>,],</span><br><span class="line">        [<span class="string">r&#x27;$really\ bad$&#x27;</span>, <span class="string">r&#x27;$bad$&#x27;</span>, <span class="string">r&#x27;$normal$&#x27;</span>, <span class="string">r&#x27;$good$&#x27;</span>, <span class="string">r&#x27;$really\ good$&#x27;</span>])</span><br><span class="line"></span><br><span class="line">l1, = plt.plot(x, y2, label=<span class="string">&#x27;up&#x27;</span>)</span><br><span class="line">l2, = plt.plot(x, y1, color=<span class="string">&#x27;red&#x27;</span>, linewidth=<span class="number">1.0</span>, linestyle=<span class="string">&#x27;--&#x27;</span>, label=<span class="string">&#x27;down&#x27;</span>)</span><br><span class="line">plt.legend(handles=[l1, l2,], labels=[<span class="string">&#x27;aaa&#x27;</span>, <span class="string">&#x27;bbb&#x27;</span>], loc=<span class="string">&#x27;best&#x27;</span>, frameon=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx2ncenqj214h0u040l.jpg" alt=""></p>
+<h2 id="Annotation标注"><a href="#Annotation标注" class="headerlink" title="Annotation标注"></a>Annotation标注</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">50</span>)</span><br><span class="line">y = <span class="number">2</span>*x + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">plt.figure(num=<span class="number">1</span>, figsize=(<span class="number">8</span>, <span class="number">5</span>))</span><br><span class="line"><span class="comment"># 设置xtick和ytick的方向：in、out、inout</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;xtick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;ytick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.plot(x, y,)</span><br><span class="line"></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">ax.xaxis.set_ticks_position(<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;bottom&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>, <span class="number">0</span>))</span><br><span class="line">ax.yaxis.set_ticks_position(<span class="string">&#x27;left&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">x0 = <span class="number">1</span></span><br><span class="line">y0 = <span class="number">2</span>*x0 + <span class="number">1</span></span><br><span class="line">plt.scatter(x0, y0, s=<span class="number">50</span>, color=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">plt.plot([x0, x0], [y0, <span class="number">0</span>], <span class="string">&#x27;k--&#x27;</span>, lw=<span class="number">2.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 1</span></span><br><span class="line"><span class="comment">########################################</span></span><br><span class="line">plt.annotate(<span class="string">r&#x27;$2x+1=%s$&#x27;</span> % y0, xy=(x0, y0), xycoords=<span class="string">&#x27;data&#x27;</span>, xytext=(+<span class="number">30</span>, -<span class="number">30</span>), textcoords=<span class="string">&#x27;offset points&#x27;</span>, fontsize=<span class="number">16</span>, arrowprops=<span class="built_in">dict</span>(arrowstyle=<span class="string">&#x27;-&gt;&#x27;</span>, connectionstyle=<span class="string">&#x27;arc3, rad=.2&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2</span></span><br><span class="line"><span class="comment">########################################</span></span><br><span class="line">plt.text(-<span class="number">3.7</span>, <span class="number">3</span>, <span class="string">r&#x27;$This\ is\ some\ text.\ \mu\ \sigma_i\ \alpha_t$&#x27;</span>, fontdict=&#123;<span class="string">&#x27;size&#x27;</span>: <span class="number">16</span>, <span class="string">&#x27;color&#x27;</span>: <span class="string">&#x27;r&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx4482dqj214h0u0q4u.jpg" alt=""></p>
+<h2 id="tick能见度"><a href="#tick能见度" class="headerlink" title="tick能见度"></a>tick能见度</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, <span class="number">50</span>)</span><br><span class="line">y = <span class="number">0.1</span>*x</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(x, y, linewidth=<span class="number">10</span>)</span><br><span class="line">plt.ylim(-<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置xtick和ytick的方向：in、out、inout</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;xtick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;ytick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[<span class="string">&#x27;right&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;top&#x27;</span>].set_color(<span class="string">&#x27;none&#x27;</span>)</span><br><span class="line">ax.xaxis.set_ticks_position(<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;bottom&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>, <span class="number">0</span>))</span><br><span class="line">ax.yaxis.set_ticks_position(<span class="string">&#x27;left&#x27;</span>)</span><br><span class="line">ax.spines[<span class="string">&#x27;left&#x27;</span>].set_position((<span class="string">&#x27;data&#x27;</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> label <span class="keyword">in</span> ax.get_xticklabels() + ax.get_yticklabels():</span><br><span class="line">    label.set_fontsize(<span class="number">12</span>)</span><br><span class="line">    label.set_bbox(<span class="built_in">dict</span>(facecolor=<span class="string">&#x27;k&#x27;</span>, edgecolor=<span class="string">&#x27;None&#x27;</span>, alpha=<span class="number">0.3</span>))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx51vj57j20ye0u03zy.jpg" alt=""></p>
+<h2 id="Scatter散点图"><a href="#Scatter散点图" class="headerlink" title="Scatter散点图"></a>Scatter散点图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">n = <span class="number">1024</span></span><br><span class="line">X = np.random.normal(<span class="number">0</span>, <span class="number">1</span>, n)</span><br><span class="line">Y = np.random.normal(<span class="number">0</span>, <span class="number">1</span>, n)</span><br><span class="line">T = np.arctan2(Y, X)  <span class="comment"># for color value</span></span><br><span class="line"></span><br><span class="line">plt.scatter(X, Y, s=<span class="number">75</span>, c=T, alpha=<span class="number">0.5</span>)</span><br><span class="line"><span class="comment"># plt.scatter(np.arange(5), np.arange(5))</span></span><br><span class="line"></span><br><span class="line">plt.xlim((-<span class="number">1.5</span>, <span class="number">1.5</span>))</span><br><span class="line">plt.ylim((-<span class="number">1.5</span>, <span class="number">1.5</span>))</span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.yticks(())</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx7a0rjzj20ye0u0tdl.jpg" alt=""></p>
+<h2 id="Bar柱状图"><a href="#Bar柱状图" class="headerlink" title="Bar柱状图"></a>Bar柱状图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">n = <span class="number">12</span></span><br><span class="line">X = np.arange(n)</span><br><span class="line">Y1 = (<span class="number">1</span> - X / <span class="built_in">float</span>(n)) * np.random.uniform(<span class="number">0.5</span>, <span class="number">1.0</span>, n)</span><br><span class="line">Y2 = (<span class="number">1</span> - X / <span class="built_in">float</span>(n)) * np.random.uniform(<span class="number">0.5</span>, <span class="number">1.0</span>, n)</span><br><span class="line"></span><br><span class="line">plt.bar(X, +Y1, facecolor=<span class="string">&#x27;#9999ff&#x27;</span>, edgecolor=<span class="string">&#x27;white&#x27;</span>)</span><br><span class="line">plt.bar(X, -Y2, facecolor=<span class="string">&#x27;#ff9999&#x27;</span>, edgecolor=<span class="string">&#x27;white&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> <span class="built_in">zip</span>(X, Y1):</span><br><span class="line">    <span class="comment"># ha:horizontal alignment</span></span><br><span class="line">    plt.text(x, y + <span class="number">0.05</span>, <span class="string">&#x27;%.2f&#x27;</span> % y, ha=<span class="string">&#x27;center&#x27;</span>, va=<span class="string">&#x27;bottom&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x,y <span class="keyword">in</span> <span class="built_in">zip</span>(X, Y2):</span><br><span class="line">    <span class="comment"># ha:horizontal alignment</span></span><br><span class="line">    plt.text(x , -y - <span class="number">0.05</span>, <span class="string">&#x27;-%.2f&#x27;</span> % y, ha=<span class="string">&#x27;center&#x27;</span>, va=<span class="string">&#x27;top&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlim(-<span class="number">.5</span>, n)</span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.ylim(-<span class="number">1.25</span>, <span class="number">1.25</span>)</span><br><span class="line">plt.yticks(())</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx8f5mz0j20ye0u0gnn.jpg" alt=""></p>
+<h2 id="Contours等高线图"><a href="#Contours等高线图" class="headerlink" title="Contours等高线图"></a>Contours等高线图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x, y</span>):</span></span><br><span class="line">    <span class="comment"># the height function</span></span><br><span class="line">    <span class="keyword">return</span>(<span class="number">1</span> - x / <span class="number">2</span> + x**<span class="number">5</span> + y**<span class="number">3</span>) * np.exp(-x**<span class="number">2</span> - y**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = <span class="number">256</span></span><br><span class="line">x = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, n)</span><br><span class="line">y = np.linspace(-<span class="number">3</span>, <span class="number">3</span>, n)</span><br><span class="line">X, Y = np.meshgrid(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># use plt.contourf to filling coutours</span></span><br><span class="line"><span class="comment"># X, Y and value for (X, Y) point</span></span><br><span class="line">plt.contourf(X, Y, f(X, Y), <span class="number">8</span>, alpha=<span class="number">0.75</span>, cmap=plt.cm.hot)</span><br><span class="line"></span><br><span class="line"><span class="comment"># use plt.contour to add contour lines</span></span><br><span class="line">C = plt.contour(X, Y, f(X, Y), <span class="number">8</span>, colors=<span class="string">&#x27;black&#x27;</span>, linewidth=<span class="number">.5</span>)</span><br><span class="line"><span class="comment"># add label</span></span><br><span class="line">plt.clabel(C, inline=<span class="literal">True</span>, fontsize=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.yticks(())</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bx9hs0qcj20ye0u0tbo.jpg" alt=""></p>
+<h2 id="Image图片"><a href="#Image图片" class="headerlink" title="Image图片"></a>Image图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># image data</span><br><span class="line">a &#x3D; np.array([0.31, 0.36, 0.42,</span><br><span class="line">             0.36, 0.43, 0.52,</span><br><span class="line">             0.42, 0.52, 0.65]).reshape(3, 3)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">for the value of &quot;interpolation&quot;, check this:</span><br><span class="line">http:&#x2F;&#x2F;matplotlib.org&#x2F;examples&#x2F;images_contours_and_fields&#x2F;interpolation_method.html</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">plt.imshow(a, interpolation&#x3D;&#39;nearest&#39;, cmap&#x3D;&#39;bone&#39;, origin&#x3D;&#39;upper&#39;)</span><br><span class="line">plt.colorbar(shrink&#x3D;0.9)</span><br><span class="line"></span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.yticks(())</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxansm70j20ye0u0myh.jpg" alt=""></p>
+<h2 id="3D数据"><a href="#3D数据" class="headerlink" title="3D数据"></a>3D数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> mpl_toolkits.mplot3d <span class="keyword">import</span> Axes3D</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = Axes3D(fig)</span><br><span class="line"><span class="comment"># X, Y values</span></span><br><span class="line">X = np.arange(-<span class="number">4</span>, <span class="number">4</span>, <span class="number">0.25</span>)</span><br><span class="line">Y = np.arange(-<span class="number">4</span>, <span class="number">4</span>, <span class="number">0.25</span>)</span><br><span class="line">X, Y = np.meshgrid(X, Y)</span><br><span class="line">R = np.sqrt(X**<span class="number">2</span> + Y**<span class="number">2</span>)</span><br><span class="line"><span class="comment"># height value</span></span><br><span class="line">Z = np.sin(R)</span><br><span class="line"></span><br><span class="line">ax.plot_surface(X, Y, Z, rstride=<span class="number">1</span>, cstride=<span class="number">1</span>, cmap=plt.get_cmap(<span class="string">&#x27;rainbow&#x27;</span>), edgecolor=<span class="string">&#x27;black&#x27;</span>)</span><br><span class="line">ax.contourf(X, Y, Z, zdir=<span class="string">&#x27;z&#x27;</span>, offset=-<span class="number">2</span>, cmap=<span class="string">&#x27;rainbow&#x27;</span>)</span><br><span class="line">ax.set_zlim(-<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxbvdo8nj20ye0u07a0.jpg" alt=""></p>
+<h2 id="Subplot多合一显示"><a href="#Subplot多合一显示" class="headerlink" title="Subplot多合一显示"></a>Subplot多合一显示</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置xtick和ytick的方向：in、out、inout</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;xtick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;ytick.direction&#x27;</span>] = <span class="string">&#x27;in&#x27;</span></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>,  <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>)</span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxd7vobpj20ye0u0wgn.jpg" alt=""></p>
+<h2 id="Subplot分格显示"><a href="#Subplot分格显示" class="headerlink" title="Subplot分格显示"></a>Subplot分格显示</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.gridspec <span class="keyword">as</span> gridspec</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 1:subplot2grid</span></span><br><span class="line"><span class="comment">################################</span></span><br><span class="line">plt.figure()</span><br><span class="line">ax1 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">0</span>, <span class="number">0</span>), colspan=<span class="number">3</span>, rowspan=<span class="number">1</span>)</span><br><span class="line">ax1.plot([<span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">ax1.set_title(<span class="string">&#x27;ax1_title&#x27;</span>)</span><br><span class="line">ax2 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">1</span>, <span class="number">0</span>), colspan=<span class="number">2</span>)</span><br><span class="line">ax3 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">1</span>, <span class="number">2</span>), rowspan=<span class="number">2</span>)</span><br><span class="line">ax4 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">ax5 = plt.subplot2grid((<span class="number">3</span>, <span class="number">3</span>), (<span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 2:gridspec</span></span><br><span class="line"><span class="comment">################################</span></span><br><span class="line">plt.figure()</span><br><span class="line">gs = gridspec.GridSpec(<span class="number">3</span>, <span class="number">3</span>)</span><br><span class="line">ax1 = plt.subplot(gs[<span class="number">0</span>, :])</span><br><span class="line">ax2 = plt.subplot(gs[<span class="number">1</span>, :<span class="number">2</span>])</span><br><span class="line">ax3 = plt.subplot(gs[<span class="number">1</span>:, <span class="number">2</span>])</span><br><span class="line">ax4 = plt.subplot(gs[-<span class="number">1</span>, <span class="number">0</span>])</span><br><span class="line">ax5 = plt.subplot(gs[-<span class="number">1</span>, -<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># method 3:easy to define structure</span></span><br><span class="line"><span class="comment">###############################</span></span><br><span class="line">f, ((ax11, ax12), (ax21, ax22)) = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, sharex=<span class="literal">True</span>, sharey=<span class="literal">True</span>)</span><br><span class="line">ax11.scatter([<span class="number">1</span>, <span class="number">2</span>], [<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxfznz8wj20ye0u0q4z.jpg" alt=""></p>
+<p><center>方法一</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxgvjpuvj20ye0u0jt4.jpg" alt=""></p>
+<p><center>方法二</p>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxifsgo4j20yp0u075u.jpg" alt=""></p>
+<p><center>方法三</p>
+<h2 id="图中图"><a href="#图中图" class="headerlink" title="图中图"></a>图中图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">y = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line">left, bottom, width, height = <span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.8</span></span><br><span class="line">ax1 = fig.add_axes([left, bottom, width, height])</span><br><span class="line">ax1.plot(x, y, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">ax1.set_title(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line"></span><br><span class="line">left, bottom, width, height = <span class="number">0.2</span>, <span class="number">0.6</span>, <span class="number">0.25</span>, <span class="number">0.25</span></span><br><span class="line">ax2 = fig.add_axes([left, bottom, width, height])</span><br><span class="line">ax2.plot(y, x, <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">ax2.set_xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">ax2.set_ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">ax2.set_title(<span class="string">&#x27;title inside 1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.axes([<span class="number">0.6</span>, <span class="number">0.2</span>, <span class="number">0.25</span>, <span class="number">0.25</span>])</span><br><span class="line">plt.plot(y[::-<span class="number">1</span>], x, <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;title inside 2&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxkoegh3j20ye0u0gnx.jpg" alt=""></p>
+<h2 id="次坐标轴"><a href="#次坐标轴" class="headerlink" title="次坐标轴"></a>次坐标轴</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">10</span>, <span class="number">0.1</span>)</span><br><span class="line">y1 = <span class="number">0.05</span> * x ** <span class="number">2</span></span><br><span class="line">y2 = -<span class="number">1</span> * y1</span><br><span class="line"></span><br><span class="line">fig, ax1 = plt.subplots()</span><br><span class="line">ax2 = ax1.twinx()</span><br><span class="line">ax1.plot(x, y1, <span class="string">&#x27;g-&#x27;</span>)</span><br><span class="line">ax2.plot(x, y2, <span class="string">&#x27;b--&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;X data&#x27;</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;Y1&#x27;</span>, color=<span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">ax2.set_ylabel(<span class="string">&#x27;Y2&#x27;</span>, color=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0bxllu9sbj20ye0u0dho.jpg" alt=""></p>
+<h2 id="Animation动画"><a href="#Animation动画" class="headerlink" title="Animation动画"></a>Animation动画</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> animation</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots()</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">2</span> * np.pi, <span class="number">0.01</span>)</span><br><span class="line">line, = ax.plot(x, np.sin(x))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">animate</span>(<span class="params">i</span>):</span></span><br><span class="line">    line.set_ydata(np.sin(x + i/<span class="number">10</span>))</span><br><span class="line">    <span class="keyword">return</span> line,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span>():</span></span><br><span class="line">    line.set_ydata(np.sin(x))</span><br><span class="line">    <span class="keyword">return</span> line,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ani = animation.FuncAnimation(fig=fig, func=animate, frames=<span class="number">100</span>, init_func=init, interval=<span class="number">20</span>, blit=<span class="literal">False</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Mingrui_Jiang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Mingrui_Jiang Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Mingrui_Jiang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://jamerri.github.io/2022/03/16/Python-Matplotlib%E5%AD%A6%E4%B9%A0/" title="Python-Matplotlib学习">http://jamerri.github.io/2022/03/16/Python-Matplotlib学习/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Python-Matplotlib/" rel="tag"><i class="fa fa-tag"></i> Python Matplotlib</ a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/12/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%A6%82%E7%8E%87/" rel="prev" title="第一章-统计学习方法概率">
+      <i class="fa fa-chevron-left"></i> 第一章-统计学习方法概率
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Matplotlib"><span class="nav-number">1.</span> <span class="nav-text">Matplotlib</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#figure%E5%9B%BE%E5%83%8F"><span class="nav-number">1.2.</span> <span class="nav-text">figure图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%9D%90%E6%A0%87%E8%BD%B4"><span class="nav-number">1.3.</span> <span class="nav-text">设置坐标轴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Legend%E5%9B%BE%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Legend图例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Annotation%E6%A0%87%E6%B3%A8"><span class="nav-number">1.5.</span> <span class="nav-text">Annotation标注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tick%E8%83%BD%E8%A7%81%E5%BA%A6"><span class="nav-number">1.6.</span> <span class="nav-text">tick能见度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scatter%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="nav-number">1.7.</span> <span class="nav-text">Scatter散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bar%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="nav-number">1.8.</span> <span class="nav-text">Bar柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contours%E7%AD%89%E9%AB%98%E7%BA%BF%E5%9B%BE"><span class="nav-number">1.9.</span> <span class="nav-text">Contours等高线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image%E5%9B%BE%E7%89%87"><span class="nav-number">1.10.</span> <span class="nav-text">Image图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D%E6%95%B0%E6%8D%AE"><span class="nav-number">1.11.</span> <span class="nav-text">3D数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subplot%E5%A4%9A%E5%90%88%E4%B8%80%E6%98%BE%E7%A4%BA"><span class="nav-number">1.12.</span> <span class="nav-text">Subplot多合一显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subplot%E5%88%86%E6%A0%BC%E6%98%BE%E7%A4%BA"><span class="nav-number">1.13.</span> <span class="nav-text">Subplot分格显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E4%B8%AD%E5%9B%BE"><span class="nav-number">1.14.</span> <span class="nav-text">图中图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A1%E5%9D%90%E6%A0%87%E8%BD%B4"><span class="nav-number">1.15.</span> <span class="nav-text">次坐标轴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Animation%E5%8A%A8%E7%94%BB"><span class="nav-number">1.16.</span> <span class="nav-text">Animation动画</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mingrui_Jiang"
+      src="/images/2.jpg">
+  <p class="site-author-name" itemprop="name">Mingrui_Jiang</p>
+  <div class="site-description" itemprop="description">记录学习过程中的点点滴滴，见证自己的成长</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jamerri" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jamerri" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jamerri@163.com" title="E-Mail → mailto:jamerri@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mingrui_Jiang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">39k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">36 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
