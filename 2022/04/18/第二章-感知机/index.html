@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"jamerri.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一个简单示例1234567cars &#x3D; [&amp;#x27;audi&amp;#x27;, &amp;#x27;bwm&amp;#x27;, &amp;#x27;subaru&amp;#x27;, &amp;#x27;toyota&amp;#x27;]for car in cars:    if car &#x3D;&#x3D; &amp;#x27;bwm&amp;#x27;:        print(car.upper())    else:        print(car.title(">
+  <meta name="description" content="感知机感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。 感知机模型定义 2.1 （感知机）  假设输入空间（特征空间）是$\mathrm{x} \subseteq \mathrm{R}^{n}$，输出空间是 $\mathcal{Y}&#x3D;\{+1,-1\} $。输入$x \in \mathcal{X} $表示实例的特征向量，对应于输入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《Python编程从入门到实践》第五章笔记">
-<meta property="og:url" content="http://jamerri.github.io/2021/08/03/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="第二章-感知机">
+<meta property="og:url" content="http://jamerri.github.io/2022/04/18/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%84%9F%E7%9F%A5%E6%9C%BA/index.html">
 <meta property="og:site_name" content="Jamerri&#39;s blog">
-<meta property="og:description" content="一个简单示例1234567cars &#x3D; [&amp;#x27;audi&amp;#x27;, &amp;#x27;bwm&amp;#x27;, &amp;#x27;subaru&amp;#x27;, &amp;#x27;toyota&amp;#x27;]for car in cars:    if car &#x3D;&#x3D; &amp;#x27;bwm&amp;#x27;:        print(car.upper())    else:        print(car.title(">
+<meta property="og:description" content="感知机感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。 感知机模型定义 2.1 （感知机）  假设输入空间（特征空间）是$\mathrm{x} \subseteq \mathrm{R}^{n}$，输出空间是 $\mathcal{Y}&#x3D;\{+1,-1\} $。输入$x \in \mathcal{X} $表示实例的特征向量，对应于输入">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-03T11:52:17.000Z">
-<meta property="article:modified_time" content="2022-01-12T07:42:18.348Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1e44ldcbtj20j00i4t97.jpg">
+<meta property="article:published_time" content="2022-04-18T13:07:02.000Z">
+<meta property="article:modified_time" content="2022-04-18T13:08:16.316Z">
 <meta property="article:author" content="Mingrui_Jiang">
-<meta property="article:tag" content="Python 编程学习">
+<meta property="article:tag" content="机器学习 统计基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1e44ldcbtj20j00i4t97.jpg">
 
-<link rel="canonical" href="http://jamerri.github.io/2021/08/03/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://jamerri.github.io/2022/04/18/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%84%9F%E7%9F%A5%E6%9C%BA/">
 
 
 <script id="page-configurations">
@@ -46,7 +48,7 @@
   };
 </script>
 
-  <title>《Python编程从入门到实践》第五章笔记 | Jamerri's blog</title>
+  <title>第二章-感知机 | Jamerri's blog</title>
   
 
 
@@ -191,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://jamerri.github.io/2021/08/03/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://jamerri.github.io/2022/04/18/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%84%9F%E7%9F%A5%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/2.jpg">
@@ -204,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《Python编程从入门到实践》第五章笔记
+          第二章-感知机
         </h1>
 
         <div class="post-meta">
@@ -215,23 +217,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-08-03 19:52:17" itemprop="dateCreated datePublished" datetime="2021-08-03T19:52:17+08:00">2021-08-03</time>
+              <time title="Created: 2022-04-18 21:07:02 / Modified: 21:08:16" itemprop="dateCreated datePublished" datetime="2022-04-18T21:07:02+08:00">2022-04-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-01-12 15:42:18" itemprop="dateModified" datetime="2022-01-12T15:42:18+08:00">2022-01-12</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">编程类</span></a>
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">算法类</span></a>
                 </span>
             </span>
 
@@ -248,7 +244,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>544</span>
+              <span>489</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -267,32 +263,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="一个简单示例"><a href="#一个简单示例" class="headerlink" title="一个简单示例"></a>一个简单示例</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">&#x27;audi&#x27;</span>, <span class="string">&#x27;bwm&#x27;</span>, <span class="string">&#x27;subaru&#x27;</span>, <span class="string">&#x27;toyota&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> car <span class="keyword">in</span> cars:</span><br><span class="line">    <span class="keyword">if</span> car == <span class="string">&#x27;bwm&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(car.upper())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(car.title())</span><br></pre></td></tr></table></figure>
-<h1 id="条件测试"><a href="#条件测试" class="headerlink" title="条件测试"></a>条件测试</h1><span id="more"></span>
-<h2 id="检查是否相等"><a href="#检查是否相等" class="headerlink" title="检查是否相等"></a>检查是否相等</h2><ol>
-<li>使用两个等号（==）。如果相等运算符在它两边的值相等时返回True，否则返回False。</li>
-</ol>
-<h2 id="检查是否相等时不考虑大小写"><a href="#检查是否相等时不考虑大小写" class="headerlink" title="检查是否相等时不考虑大小写"></a>检查是否相等时不考虑大小写</h2><ol>
-<li>大小写不一样，也会返回False。</li>
-</ol>
-<h2 id="检查是否不相等"><a href="#检查是否不相等" class="headerlink" title="检查是否不相等"></a>检查是否不相等</h2><ol>
-<li>使用惊叹号和等号（！=）。</li>
-</ol>
-<h2 id="比较数字"><a href="#比较数字" class="headerlink" title="比较数字"></a>比较数字</h2><ol>
-<li>条件语句中可包含各种数学比较，如小于、小于等于、大于、大于等于。</li>
-</ol>
-<h2 id="检查多个条件"><a href="#检查多个条件" class="headerlink" title="检查多个条件"></a>检查多个条件</h2><ol>
-<li>使用and检查多个条件，表示并列，需要同时满足。</li>
-<li>使用or检查多个条件，表示或，不需要同时满足。</li>
-</ol>
-<h2 id="检查特定值是否包含在列表中"><a href="#检查特定值是否包含在列表中" class="headerlink" title="检查特定值是否包含在列表中"></a>检查特定值是否包含在列表中</h2><ol>
-<li>列表元素 in 列表。</li>
-</ol>
-<h2 id="检查特定值是否不包含在列表中"><a href="#检查特定值是否不包含在列表中" class="headerlink" title="检查特定值是否不包含在列表中"></a>检查特定值是否不包含在列表中</h2><ol>
-<li>列表元素 not in 列表。</li>
-</ol>
-<h2 id="布尔表达式"><a href="#布尔表达式" class="headerlink" title="布尔表达式"></a>布尔表达式</h2><h1 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h1><h2 id="简单的if语句"><a href="#简单的if语句" class="headerlink" title="简单的if语句"></a>简单的if语句</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> conditional_test:</span><br><span class="line">    do something</span><br></pre></td></tr></table></figure>
-<h2 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if-else语句"></a>if-else语句</h2><h2 id="if-elif-else结构"><a href="#if-elif-else结构" class="headerlink" title="if-elif-else结构"></a>if-elif-else结构</h2><h2 id="使用多个elfi代码块"><a href="#使用多个elfi代码块" class="headerlink" title="使用多个elfi代码块"></a>使用多个elfi代码块</h2><h2 id="省略else代码块"><a href="#省略else代码块" class="headerlink" title="省略else代码块"></a>省略else代码块</h2><h2 id="测试多个条件"><a href="#测试多个条件" class="headerlink" title="测试多个条件"></a>测试多个条件</h2><h1 id="使用if语句处理列表"><a href="#使用if语句处理列表" class="headerlink" title="使用if语句处理列表"></a>使用if语句处理列表</h1><h2 id="检查特殊元素"><a href="#检查特殊元素" class="headerlink" title="检查特殊元素"></a>检查特殊元素</h2><h2 id="确定列表不是空的"><a href="#确定列表不是空的" class="headerlink" title="确定列表不是空的"></a>确定列表不是空的</h2><h2 id="使用多个列表"><a href="#使用多个列表" class="headerlink" title="使用多个列表"></a>使用多个列表</h2><h1 id="设置if语句的格式"><a href="#设置if语句的格式" class="headerlink" title="设置if语句的格式"></a>设置if语句的格式</h1>
+        <h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><p>感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。</p>
+<h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><p><strong>定义 2.1 （感知机）</strong>  假设输入空间（特征空间）是$\mathrm{x} \subseteq \mathrm{R}^{n}$，输出空间是 $\mathcal{Y}=\{+1,-1\} $。输入$x \in \mathcal{X} $表示实例的特征向量，对应于输入空间（特征空间）的点；输出$y \in \mathcal{Y}$表示实例的类别。由输入空间到输出空间的如下函数</p>
+<script type="math/tex; mode=display">
+f(x)=\operatorname{sign}(w \cdot x+b)</script><p>称为感知机。其中，$w$和$b$为感知机模型参数，$w \in \mathrm{R}^{n}$叫作权值（weight）或权值向量（weight vector），$b \in \mathrm{R}$叫作偏置（bias）,$\mathrm{w} \cdot \mathrm{x}$ 表示$w$和$x$的内积。sign是符号函数，即</p>
+<script type="math/tex; mode=display">
+\operatorname{sign}(x)= \begin{cases}+1, & x \geqslant 0 \\ -1, & x<0\end{cases}</script><p>感知机有如下几何解释：线性方程</p>
+<script type="math/tex; mode=display">
+w \cdot x + b = 0</script><p>对应于特征空间$\mathrm{R}^{n}$中一个超平面$S$，其中$w$是超平面的法向量，$b$是超平面的截距。这个超平面将特征空间划分为两部分。位于两部分的点（特征向量）分别被分为正、负两类。因此，超平面$S$称为分离超平面（separating hyperplane），如图1所示<br><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1e44ldcbtj20j00i4t97.jpg" alt=""></p>
+<p><center>图1 感知机模型<center></p>
+<h2 id="感知机模型-1"><a href="#感知机模型-1" class="headerlink" title="感知机模型"></a>感知机模型</h2><h3 id="数据集的线性可分性"><a href="#数据集的线性可分性" class="headerlink" title="数据集的线性可分性"></a>数据集的线性可分性</h3><p><strong>定义2.2 （数据集的线性可分性）</strong> 给定一个数据集$T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$,<br>其中，$x_i \in \mathcal{X}=\mathrm{R}^{n}$,$y_i \in \mathcal{Y}=\{+1,-1\}$， $i=1,2,\cdots,N$，如果存在某个超平面$S$ $w \cdot x + b = 0$能够将数据集的正实例点和负实例点完全正确地划分到超平面的两侧，即对所有$y_i=+1$的实例$i$，有$w \cdot x + b &gt; 0$，对所有$y_i=-1$的实例$i$，有$w \cdot x + b &lt; 0 $，则称数据集T为线性可分数据集（linearly separable data set）；否则，称数据集T线性不可分。</p>
+<h3 id="感知机学习策略"><a href="#感知机学习策略" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h3><p>损失函数的一个自然选择是误分类点的总数。但是，这样的损失函数不是参数$w,b$的连续可导函数，不易优化。损失函数的另一个选择是误分类点到超平面$S$的总距离，这是感知机所采用。为此，首先写出输入空间$\mathrm{R}^{n}$中任一点$x_0$到超平面$S$的距离：<br>$\frac{1}{|w|}\left|w \cdot x_{0}+b\right|$ 这里，$||w||$是$w$的$L_2$范数。</p>
+<p>其次，对于误分类的数据$(x_i,y_i)$来说，$-y_i(w \cdot x_i + b) &gt; 0$成立。因为当$w \cdot x + b &gt; 0$时，$y_i=-1$，而当$w \cdot x + b &lt; 0 $时，$y_i=+1$。因此，误分类点$x_i$到超平面$S$的距离是$-\frac{1}{|w|}y_i\left|w \cdot x_{0}+b\right|$ 这样，假设超平面$S$的误分类点集合为$M$，那么所有误分类点到超平面$S$的总距离为$-\frac{1}{|w|} \sum_{x_{i} \in M} y_{i}\left(w \cdot x_{i}+b\right)$ 不考虑$\frac{1}{|w|}$，就得到感知机学习的损失函数。</p>
+<p>给定训练数据集$T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$ 其中，$x_i \in \mathrm{X}=\mathrm{R}^{n}$,$y_i \in \mathrm{Y}=\{+1,-1\}$， $i=1,2,\cdots,N$。感知机$sign(w \cdot x + b)$学习的损失函数定义为</p>
+<script type="math/tex; mode=display">
+L(w, b)=-\sum_{x_{i} \in M} y_{i}\left(w \cdot x_{i}+b\right)</script><p>其中$M$为误分类点的集合。这个损失函数就是感知机学习的经验风险函数。</p>
+<p>感知机学习的策略是在假设空间中选取使损失函数式（4）最小的模型参数$w,b$,即感知机模型。</p>
+<h2 id="感知机学习算法"><a href="#感知机学习算法" class="headerlink" title="感知机学习算法"></a>感知机学习算法</h2><p>感知机学习问题转化为求解损失函数式（4）的最优化问题，最优化的方法是随机梯度下降法。</p>
+<h3 id="感知机学习算法的原始形式"><a href="#感知机学习算法的原始形式" class="headerlink" title="感知机学习算法的原始形式"></a>感知机学习算法的原始形式</h3><p><strong>算法2.1 （感知机学习算法的原始形式）</strong><br>输入：训练数据集$T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$，其中$x_i \in \mathcal{X}=\mathrm{R}^{n}$,$y_i \in \mathcal{Y}=\{+1,-1\}$， $i=1,2,\cdots,N$；学习率$\eta {（0&lt;} \eta {\leq 1）}$；</p>
+<p>输出：$w,b$；感知机模型$f(x)=sign(w\cdot x+b)$.</p>
+<p>(1)选取初值$w_0,b_0$</p>
+<p>(2)在训练集中选取数据$(x_i,y_i)$</p>
+<p>(3)如果$y_i(w \cdot x + b \leq 0)$</p>
+<p>$w \leftarrow w + \eta y_i x_i$</p>
+<p>$b \leftarrow b + \eta y_i$</p>
+<p>(4)转至（2），直至训练集中没有误分类点。</p>
+<h3 id="算法收敛性"><a href="#算法收敛性" class="headerlink" title="算法收敛性"></a>算法收敛性</h3><p><strong>定理2.1 （Novikoff）</strong> 设训练数据集$T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$是线性可分的，其中$x_i \in \mathcal{X}=\mathrm{R}^{n}$,$y_i \in \mathcal{Y}=\{+1,-1\}$， $i=1,2,\cdots,N$，则<br>（1）存在满足条件$\left|\hat{w}_{\text {opt }}\right|=1$的超平面$\hat{w}_{\mathrm{opt}} \cdot \hat{x}=w_{\mathrm{opt}} \cdot x+b_{\mathrm{opt}}=0$将训练数据集完全正确分开；且存在$\gamma&gt;0$，对所有$i=1,2,\cdots,N$</p>
+<script type="math/tex; mode=display">
+y_{i}\left(\hat{w}_{\mathrm{opt}} \cdot \hat{x}_{i}\right)=y_{i}\left(w_{\mathrm{opt}} \cdot x_{i}+b_{\mathrm{opt}}\right) \geqslant \gamma</script><p>（2）令$R=\max _{1 \leqslant i \leqslant N}\left|\hat{x}_{i}\right|$，则感知机算法2.1在训练数据集上的误分类次数$k$满足不等式</p>
+<script type="math/tex; mode=display">
+k \leqslant\left(\frac{R}{\gamma}\right)^{2}</script><p>定理表明，误分类的次数$k$是有上界的，经过有限次搜索可以找到将训练数据完全正确分开的分离超平面。也就是说，当训练数据集线性可分时，感知机学习算法原始形式迭代是收敛的。</p>
+<h3 id="感知机学习算法的对偶形式"><a href="#感知机学习算法的对偶形式" class="headerlink" title="感知机学习算法的对偶形式"></a>感知机学习算法的对偶形式</h3><p><strong>算法2.1 （感知机学习算法的对偶形式）</strong><br>输入：训练数据集$T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$，其中$x_i \in \mathcal{X}=\mathrm{R}^{n}$,$y_i \in \mathcal{Y}=\{+1,-1\}$， $i=1,2,\cdots,N$；学习率$\eta {（0&lt;} \eta {\leq 1）}$；</p>
+<p>输出：$a,b$；感知机模型$f(x)=\operatorname{sign}\left(\sum_{j=1}^{N} \alpha_{j} y_{j} x_{j} \cdot x+b\right)$.</p>
+<p>其中$\alpha=\left(\alpha_{1}, \alpha_{2}, \cdots, \alpha_{N}\right)^{\mathrm{T}}$.</p>
+<p>(1)选取初值$a\leftarrow0, b\leftarrow0$</p>
+<p>(2)在训练集中选取数据$(x_i,y_i)$</p>
+<p>(3)如果$y_{i}\left(\sum_{j=1}^{N} \alpha_{j} y_{j} x_{j} \cdot x_{i}+b\right) \leqslant 0$</p>
+<p>$\alpha_{i} \leftarrow \alpha_{i}+\eta$</p>
+<p>$b \leftarrow b+\eta y_{i}$</p>
+<p>(4)转至（2），直至训练集中没有误分类点。</p>
+<p>对偶形式中训练实例仅以内积的形式出现。为了方便，可以预先将训练集中实例间的内积计算出来并以矩阵的形式存储，这个矩阵就是所谓的Gram矩阵（Gram matrix）</p>
+<script type="math/tex; mode=display">
+G=\left[x_{i} \cdot x_{j}\right]_{N \times N}</script>
     </div>
 
     
@@ -338,7 +350,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="http://jamerri.github.io/2021/08/03/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E4%BA%94%E7%AB%A0%E7%AC%94%E8%AE%B0/" title="《Python编程从入门到实践》第五章笔记">http://jamerri.github.io/2021/08/03/《Python编程从入门到实践》第五章笔记/</a>
+    <a href="http://jamerri.github.io/2022/04/18/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%84%9F%E7%9F%A5%E6%9C%BA/" title="第二章-感知机">http://jamerri.github.io/2022/04/18/第二章-感知机/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -350,7 +362,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/Python-%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> Python 编程学习</ a>
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%BB%9F%E8%AE%A1%E5%9F%BA%E7%A1%80/" rel="tag"><i class="fa fa-tag"></i> 机器学习 统计基础</ a>
           </div>
 
         
@@ -359,13 +371,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/08/03/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="《Python编程从入门到实践》第四章笔记">
-      <i class="fa fa-chevron-left"></i> 《Python编程从入门到实践》第四章笔记
+    <a href="/2022/03/16/Python-Matplotlib%E5%AD%A6%E4%B9%A0/" rel="prev" title="Python-Matplotlib学习">
+      <i class="fa fa-chevron-left"></i> Python-Matplotlib学习
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/08/04/%E3%80%8APython%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%E3%80%8B%E7%AC%AC%E5%85%AD%E7%AB%A0%E7%AC%94%E8%AE%B0/" rel="next" title="《Python编程从入门到实践》第六章笔记">
-      《Python编程从入门到实践》第六章笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -424,7 +433,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">一个简单示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">条件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"><span class="nav-number">2.1.</span> <span class="nav-text">检查是否相等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89%E6%97%B6%E4%B8%8D%E8%80%83%E8%99%91%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-number">2.2.</span> <span class="nav-text">检查是否相等时不考虑大小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E4%B8%8D%E7%9B%B8%E7%AD%89"><span class="nav-number">2.3.</span> <span class="nav-text">检查是否不相等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%95%B0%E5%AD%97"><span class="nav-number">2.4.</span> <span class="nav-text">比较数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%A4%9A%E4%B8%AA%E6%9D%A1%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">检查多个条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E7%89%B9%E5%AE%9A%E5%80%BC%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD"><span class="nav-number">2.6.</span> <span class="nav-text">检查特定值是否包含在列表中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E7%89%B9%E5%AE%9A%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%8D%E5%8C%85%E5%90%AB%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD"><span class="nav-number">2.7.</span> <span class="nav-text">检查特定值是否不包含在列表中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B0%94%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.8.</span> <span class="nav-text">布尔表达式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#if%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.</span> <span class="nav-text">if语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84if%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.1.</span> <span class="nav-text">简单的if语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-else%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.2.</span> <span class="nav-text">if-else语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-elif-else%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.</span> <span class="nav-text">if-elif-else结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AAelfi%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">3.4.</span> <span class="nav-text">使用多个elfi代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%81%E7%95%A5else%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">3.5.</span> <span class="nav-text">省略else代码块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%A4%9A%E4%B8%AA%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.6.</span> <span class="nav-text">测试多个条件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8if%E8%AF%AD%E5%8F%A5%E5%A4%84%E7%90%86%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">使用if语句处理列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E7%89%B9%E6%AE%8A%E5%85%83%E7%B4%A0"><span class="nav-number">4.1.</span> <span class="nav-text">检查特殊元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E5%88%97%E8%A1%A8%E4%B8%8D%E6%98%AF%E7%A9%BA%E7%9A%84"><span class="nav-number">4.2.</span> <span class="nav-text">确定列表不是空的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E5%88%97%E8%A1%A8"><span class="nav-number">4.3.</span> <span class="nav-text">使用多个列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEif%E8%AF%AD%E5%8F%A5%E7%9A%84%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">设置if语句的格式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">感知机模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E6%A8%A1%E5%9E%8B-1"><span class="nav-number">1.2.</span> <span class="nav-text">感知机模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86%E6%80%A7"><span class="nav-number">1.2.1.</span> <span class="nav-text">数据集的线性可分性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AD%96%E7%95%A5"><span class="nav-number">1.2.2.</span> <span class="nav-text">感知机学习策略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">感知机学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">感知机学习算法的原始形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%94%B6%E6%95%9B%E6%80%A7"><span class="nav-number">1.3.2.</span> <span class="nav-text">算法收敛性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E7%9A%84%E5%AF%B9%E5%81%B6%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">感知机学习算法的对偶形式</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -586,6 +595,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
