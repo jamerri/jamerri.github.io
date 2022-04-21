@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"jamerri.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="感知机感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。 感知机模型定义 2.1 （感知机）  假设输入空间（特征空间）是$\mathrm{x} \subseteq \mathrm{R}^{n}$，输出空间是 $\mathcal{Y}&#x3D;\{+1,-1\} $。输入$x \in \mathcal{X} $表示实例的特征向量，对应于输入">
+  <meta name="description" content="感知机感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二章-感知机">
 <meta property="og:url" content="http://jamerri.github.io/2022/04/18/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%84%9F%E7%9F%A5%E6%9C%BA/index.html">
 <meta property="og:site_name" content="Jamerri&#39;s blog">
-<meta property="og:description" content="感知机感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。 感知机模型定义 2.1 （感知机）  假设输入空间（特征空间）是$\mathrm{x} \subseteq \mathrm{R}^{n}$，输出空间是 $\mathcal{Y}&#x3D;\{+1,-1\} $。输入$x \in \mathcal{X} $表示实例的特征向量，对应于输入">
+<meta property="og:description" content="感知机感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/e6c9d24egy1h1e44ldcbtj20j00i4t97.jpg">
 <meta property="article:published_time" content="2022-04-18T13:07:02.000Z">
-<meta property="article:modified_time" content="2022-04-18T13:08:16.316Z">
+<meta property="article:modified_time" content="2022-04-21T16:12:41.651Z">
 <meta property="article:author" content="Mingrui_Jiang">
 <meta property="article:tag" content="机器学习 统计基础">
 <meta name="twitter:card" content="summary">
@@ -217,10 +217,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-04-18 21:07:02 / Modified: 21:08:16" itemprop="dateCreated datePublished" datetime="2022-04-18T21:07:02+08:00">2022-04-18</time>
+              <time title="Created: 2022-04-18 21:07:02" itemprop="dateCreated datePublished" datetime="2022-04-18T21:07:02+08:00">2022-04-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-22 00:12:41" itemprop="dateModified" datetime="2022-04-22T00:12:41+08:00">2022-04-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -264,6 +270,7 @@
 
       
         <h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1><p>感知机（preceptron）是二类分类的线性分类模型，其输入为实例的特征向量，输出为实例的类别，取+1和-1二值。</p>
+<span id="more"></span>
 <h2 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h2><p><strong>定义 2.1 （感知机）</strong>  假设输入空间（特征空间）是$\mathrm{x} \subseteq \mathrm{R}^{n}$，输出空间是 $\mathcal{Y}=\{+1,-1\} $。输入$x \in \mathcal{X} $表示实例的特征向量，对应于输入空间（特征空间）的点；输出$y \in \mathcal{Y}$表示实例的类别。由输入空间到输出空间的如下函数</p>
 <script type="math/tex; mode=display">
 f(x)=\operatorname{sign}(w \cdot x+b)</script><p>称为感知机。其中，$w$和$b$为感知机模型参数，$w \in \mathrm{R}^{n}$叫作权值（weight）或权值向量（weight vector），$b \in \mathrm{R}$叫作偏置（bias）,$\mathrm{w} \cdot \mathrm{x}$ 表示$w$和$x$的内积。sign是符号函数，即</p>
@@ -271,7 +278,7 @@ f(x)=\operatorname{sign}(w \cdot x+b)</script><p>称为感知机。其中，$w$�
 \operatorname{sign}(x)= \begin{cases}+1, & x \geqslant 0 \\ -1, & x<0\end{cases}</script><p>感知机有如下几何解释：线性方程</p>
 <script type="math/tex; mode=display">
 w \cdot x + b = 0</script><p>对应于特征空间$\mathrm{R}^{n}$中一个超平面$S$，其中$w$是超平面的法向量，$b$是超平面的截距。这个超平面将特征空间划分为两部分。位于两部分的点（特征向量）分别被分为正、负两类。因此，超平面$S$称为分离超平面（separating hyperplane），如图1所示<br><img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1e44ldcbtj20j00i4t97.jpg" alt=""></p>
-<p><center>图1 感知机模型<center></p>
+<p><center>图1 感知机模型</p>
 <h2 id="感知机模型-1"><a href="#感知机模型-1" class="headerlink" title="感知机模型"></a>感知机模型</h2><h3 id="数据集的线性可分性"><a href="#数据集的线性可分性" class="headerlink" title="数据集的线性可分性"></a>数据集的线性可分性</h3><p><strong>定义2.2 （数据集的线性可分性）</strong> 给定一个数据集$T=\left\{\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right), \cdots,\left(x_{N}, y_{N}\right)\right\}$,<br>其中，$x_i \in \mathcal{X}=\mathrm{R}^{n}$,$y_i \in \mathcal{Y}=\{+1,-1\}$， $i=1,2,\cdots,N$，如果存在某个超平面$S$ $w \cdot x + b = 0$能够将数据集的正实例点和负实例点完全正确地划分到超平面的两侧，即对所有$y_i=+1$的实例$i$，有$w \cdot x + b &gt; 0$，对所有$y_i=-1$的实例$i$，有$w \cdot x + b &lt; 0 $，则称数据集T为线性可分数据集（linearly separable data set）；否则，称数据集T线性不可分。</p>
 <h3 id="感知机学习策略"><a href="#感知机学习策略" class="headerlink" title="感知机学习策略"></a>感知机学习策略</h3><p>损失函数的一个自然选择是误分类点的总数。但是，这样的损失函数不是参数$w,b$的连续可导函数，不易优化。损失函数的另一个选择是误分类点到超平面$S$的总距离，这是感知机所采用。为此，首先写出输入空间$\mathrm{R}^{n}$中任一点$x_0$到超平面$S$的距离：<br>$\frac{1}{|w|}\left|w \cdot x_{0}+b\right|$ 这里，$||w||$是$w$的$L_2$范数。</p>
 <p>其次，对于误分类的数据$(x_i,y_i)$来说，$-y_i(w \cdot x_i + b) &gt; 0$成立。因为当$w \cdot x + b &gt; 0$时，$y_i=-1$，而当$w \cdot x + b &lt; 0 $时，$y_i=+1$。因此，误分类点$x_i$到超平面$S$的距离是$-\frac{1}{|w|}y_i\left|w \cdot x_{0}+b\right|$ 这样，假设超平面$S$的误分类点集合为$M$，那么所有误分类点到超平面$S$的总距离为$-\frac{1}{|w|} \sum_{x_{i} \in M} y_{i}\left(w \cdot x_{i}+b\right)$ 不考虑$\frac{1}{|w|}$，就得到感知机学习的损失函数。</p>
